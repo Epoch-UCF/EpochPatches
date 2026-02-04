@@ -129,7 +129,7 @@ repositories {
 dependencies {
 	implementation("thedarkcolour:kotlinforforge-neoforge:5.11.0")
 	
-	implementation("curse.maven:starcatcher-1357603:7553668")
+//	implementation("curse.maven:starcatcher-1357603:7553668")
 	
 	// Example mod dependency with JEI
 	// The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
