@@ -6,13 +6,8 @@ plugins {
 	kotlin("jvm") version "2.2.20"
 }
 
-val Project.parchment_mappings_version: String by properties
-val Project.parchment_minecraft_version: String by properties
-val Project.minecraft_version: String by properties
-val Project.minecraft_version_range: String by properties
-val Project.neo_version: String by properties
-val Project.neo_version_range: String by properties
-val Project.loader_version_range: String by properties
+//region gradle.properties accessors
+// gradle.properties accessors, so we don't have to do e.g. `project.properties["mod_id"]` constantly
 val Project.mod_id: String by properties
 val Project.mod_name: String by properties
 val Project.mod_license: String by properties
@@ -20,12 +15,17 @@ val Project.mod_version: String by properties
 val Project.mod_authors: String by properties
 val Project.mod_description: String by properties
 val Project.mod_group_id: String by properties
-
+val Project.parchment_mappings_version: String by properties
+val Project.parchment_minecraft_version: String by properties
+val Project.minecraft_version: String by properties
+val Project.minecraft_version_range: String by properties
+val Project.neo_version: String by properties
+val Project.neo_version_range: String by properties
+val Project.loader_version_range: String by properties
+//endregion
 
 version = mod_version
 group = mod_group_id
-
-
 
 
 base {
@@ -127,8 +127,9 @@ repositories {
 }
 
 dependencies {
-	implementation("thedarkcolour:kotlinforforge:5.11.0")
+	implementation("thedarkcolour:kotlinforforge-neoforge:5.11.0")
 	
+	implementation("curse.maven:starcatcher-1357603:7553668")
 	
 	// Example mod dependency with JEI
 	// The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -154,7 +155,7 @@ dependencies {
 
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
-var generateModMetadata = tasks.register<ProcessResources>("generateModMetadata") {
+tasks.register<ProcessResources>("generateModMetadata") {
 	var replaceProperties = mapOf("minecraft_version"      to minecraft_version,
 							 "minecraft_version_range" to minecraft_version_range,
 							 "neo_version"            to neo_version,
@@ -170,19 +171,20 @@ var generateModMetadata = tasks.register<ProcessResources>("generateModMetadata"
 	expand(replaceProperties)
 	from("src/main/templates")
 	into("build/generated/sources/modMetadata")
-}
-
+}.also {
 // Include the output of "generateModMetadata" as an input directory for the build
 // this works with both building through Gradle and the IDE.
-sourceSets.main.get().resources.srcDir(generateModMetadata)
+	sourceSets.main.get().resources.srcDir(it)
 // To avoid having to run "generateModMetadata" manually, make it run on every project reload
-neoForge.ideSyncTask(generateModMetadata)
+	neoForge.ideSyncTask(it)
+}
+
 
 
 // IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
 idea {
 	module {
-		isDownloadSources = true
+		isDownloadSources = false
 		isDownloadJavadoc = true
 	}
 }
