@@ -6,6 +6,7 @@
   "mixins": [
   ],
   "client": [
+    "client.m2.spaceploitation.MBlackHoleShader"
   ],
   "injectors": {
     "defaultRequire": 1
