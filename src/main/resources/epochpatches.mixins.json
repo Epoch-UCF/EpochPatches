@@ -7,6 +7,10 @@
   "mixins": [
   ],
   "server": [
+    "server.features.neoforge.MAsyncRunCommand",
+    "server.features.neoforge.MAsyncRunCommand_CaptureTerminalThread",
+    "server.features.neoforge.MAsyncRunCommand_DedicatedServerToo",
+    "server.features.neoforge.MAsyncRunCommand_NoEventOnTerminalThread",
   ],
   "client": [
     "client.m2.spaceploitation.MBlackHoleShader",
