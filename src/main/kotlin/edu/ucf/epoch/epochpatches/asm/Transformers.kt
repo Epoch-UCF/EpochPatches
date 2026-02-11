@@ -34,6 +34,7 @@ object Transformers {
 			listOf(
 					TDisableProcedureEntirely(),
 					
+					TVanishUtilSet(),
 			),
 			arrayOf(
 					MCreatorPaths("net.mcreator.callofyucutan.network.CallOfYucutanModVariables".toInternalName()),
