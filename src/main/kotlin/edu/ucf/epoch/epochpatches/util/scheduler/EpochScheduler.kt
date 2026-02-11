@@ -22,7 +22,7 @@ class EpochScheduler(private val tickCountGetter: IntSupplier) : IEpochScheduler
 		return QUEUE.peek()
 	}
 	
-	override fun poll() {
+	override fun runTasks() {
 		while (QUEUE.isNotEmpty() && tickCount >= QUEUE.peek().tick) {
 			QUEUE.poll().run()
 		}

@@ -23,11 +23,11 @@ public class EpochPatchesMod {
 	
 	// The constructor for the mod class is the first code that is run when your mod is loaded.
 	// FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-	public EpochPatchesMod(IEventBus modEventBus) {
+	public EpochPatchesMod() {
 		// Register the commonSetup method for modloading
 		NeoForge.EVENT_BUS.addListener(this::onServerStarting);
 		NeoForge.EVENT_BUS.addListener(this::registerCommands);
-		NeoForge.EVENT_BUS.register(EpochEventListeners.INSTANCE);
+		NeoForge.EVENT_BUS.register(EpochEventListeners.class);
 		
 	}
 	

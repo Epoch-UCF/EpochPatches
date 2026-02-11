@@ -69,7 +69,7 @@ interface IEpochScheduler {
 	 *
 	 * Called every tick by [edu.ucf.epoch.epochpatches.EpochEventListeners.onServerTick].
 	 */
-	fun poll()
+	fun runTasks()
 	
 	/**
 	 * Clear the internal queue.
