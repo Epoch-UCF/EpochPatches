@@ -1,10 +1,8 @@
 package edu.ucf.epoch.epochpatches.asm
 
 import edu.ucf.epoch.epochpatches.asm.transformers.MCreatorPaths
-import edu.ucf.epoch.epochpatches.asm.transformers.TConnectivity
 import edu.ucf.epoch.epochpatches.asm.transformers.TDisableProcedureEntirely
 import edu.ucf.epoch.epochpatches.asm.transformers.TMCreatorPacketSender
-import edu.ucf.epoch.epochpatches.asm.transformers.TUseFastHashSet
 import edu.ucf.epoch.epochpatches.asm.transformers.TVanishUtilSet
 import edu.ucf.epoch.epochpatches.asm.util.AsmFileWriter
 import edu.ucf.epoch.epochpatches.asm.util.AsmUtils
@@ -21,7 +19,6 @@ object Transformers {
 	
 	@JvmStatic
 	private var accessors: Array<ManualAccessor>? = arrayOf(
-	
 	)
 		get() {
 			val current = field
@@ -33,7 +30,6 @@ object Transformers {
 	private var transformers: Array<IClassTransformer>? = listOf(
 			listOf(
 					TDisableProcedureEntirely(),
-					
 					TVanishUtilSet(),
 			),
 			arrayOf(

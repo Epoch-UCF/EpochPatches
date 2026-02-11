@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "plugin": "edu.ucf.epoch.epochpatches.EpochMixinConfigPlugin",
   "mixins": [
+    "server.diagnostics.connectivity.MConnectivity"
   ],
   "server": [
     "server.features.neoforge.MAsyncRunCommand",

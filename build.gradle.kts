@@ -144,6 +144,7 @@ dependencies {
 	compileOnly(files(localMods.resolve("hardcorerevival-neoforge-1.21.1-21.1.11.jar")))
 	compileOnly(files(localMods.resolve("stellaris-1.21-neoforge-1.4.20.jar")))
 	compileOnly(files(localMods.resolve("operation_starcleave-neoforge-mc1.21.1-0.2.0.3.jar")))
+	compileOnly(files(localMods.resolve("connectivity-1.21.1-7.6.jar")))
 	
 	
 	compileOnly(files(project.projectDir.resolve("build/libs/epochpatches-4.0-old.jar")))
