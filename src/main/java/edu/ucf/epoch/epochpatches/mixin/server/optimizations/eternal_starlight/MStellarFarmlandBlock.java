@@ -4,21 +4,24 @@ import edu.ucf.epoch.epochpatches.mixinsupport.IFirmamentExtensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import phanastrae.operation_starcleave.block.StellarFarmlandBlock;
 import phanastrae.operation_starcleave.world.firmament.Firmament;
 
-@Mixin(value = StellarFarmlandBlock.class, remap = false)
+@Mixin(targets="phanastrae.operation_starcleave.block.StellarFarmlandBlock", remap = false) @Pseudo
 abstract class MStellarFarmlandBlock {
+	/** Just disable spawns entirely cause it's taking too much server time even with the cache */
 	@Inject(
 			method = "isStarlit",
 			at = @At("HEAD"),
 			cancellable = true
 	)
-	private static void fuckitnoitaint(LevelReader worldView, BlockPos pos, Firmament firmament, CallbackInfoReturnable<Boolean> cir) {
+	private static void fuckitnoitaint(LevelReader worldView, BlockPos pos, @Coerce Object firmament, CallbackInfoReturnable<Boolean> cir) {
 		cir.setReturnValue(Boolean.FALSE);
 	}
 	
@@ -29,7 +32,7 @@ abstract class MStellarFarmlandBlock {
 					value = "INVOKE"
 			)
 	)
-	private static int epoch$checkCache(Firmament instance, int x, int z) {
+	private static int epoch$checkCache(@Coerce Object instance, int x, int z) {
 		return ((IFirmamentExtensions) instance).epoch$getCachedDamage(x, z);
 	}
 }

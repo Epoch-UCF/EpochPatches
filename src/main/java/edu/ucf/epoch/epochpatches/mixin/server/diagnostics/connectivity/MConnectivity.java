@@ -5,9 +5,8 @@
 
 package edu.ucf.epoch.epochpatches.mixin.server.diagnostics.connectivity;
 
-import com.connectivity.networkstats.NetworkStatGatherer;
-import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -15,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  * Make `connectivity packetsSummary` use the *fully-qualified* class name for the packet
  * instead of either just the class name or the "packet name"
  */
-@Mixin(NetworkStatGatherer.class)
+@Mixin(targets="com.connectivity.networkstats.NetworkStatGatherer", remap = false) @Pseudo
 abstract class MConnectivity {
 	/**
 	 * Use fully-qualified class name

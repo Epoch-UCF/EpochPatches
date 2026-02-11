@@ -9,9 +9,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import phanastrae.operation_starcleave.world.firmament.Firmament;
 
-@Mixin(value = Firmament.class, remap = false)
+@Mixin(targets="phanastrae.operation_starcleave.world.firmament.Firmament", remap = false)
 abstract class MFirmament implements IFirmamentExtensions {
     @Unique
     private final Long2IntMap epoch$firmamentDamageTickCache = new Long2IntAVLTreeMap();

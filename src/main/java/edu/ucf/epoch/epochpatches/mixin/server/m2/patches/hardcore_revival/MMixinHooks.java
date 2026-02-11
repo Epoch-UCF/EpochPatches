@@ -1,15 +1,13 @@
 package edu.ucf.epoch.epochpatches.mixin.server.m2.patches.hardcore_revival;
 
-import com.llamalad7.mixinextras.sugar.Local;
-import net.blay09.mods.hardcorerevival.MixinHooks;
 import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(MixinHooks.class)
+@Mixin(targets="net.blay09.mods.hardcorerevival.MixinHooks", remap = false) @Pseudo
 public abstract class MMixinHooks {
-	
 	/**
 	 * Schedule the "move player" task on the main thread instead of doing it on the netty thread,
 	 * so it doesn't block for the server thread and deadlock.
