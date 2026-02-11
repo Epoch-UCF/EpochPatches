@@ -1,4 +1,5 @@
 import java.nio.file.Path
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	id("java-library")
@@ -203,4 +204,8 @@ idea {
 		isDownloadSources = false
 		isDownloadJavadoc = true
 	}
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.compilerOptions {
+	freeCompilerArgs.set(listOf("-Xcontext-parameters"))
 }
