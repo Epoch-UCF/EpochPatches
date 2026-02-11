@@ -1,4 +1,4 @@
-package edu.ucf.epoch.epochpatches.documentation;
+package edu.ucf.epoch.epochpatches.util.documentation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -11,6 +11,6 @@ import java.lang.annotation.Target;
  */
 @Documented
 @Retention(RetentionPolicy.SOURCE)
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ElementType.METHOD, ElementType.TYPE, ElementType.CONSTRUCTOR})
 public @interface UsedViaReflection {
 }

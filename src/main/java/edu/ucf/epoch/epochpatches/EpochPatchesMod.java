@@ -1,6 +1,9 @@
 package edu.ucf.epoch.epochpatches;
 
 import com.mojang.logging.LogUtils;
+import edu.ucf.epoch.epochpatches.commands.EpochCommands;
+import edu.ucf.epoch.epochpatches.impl.mcreatorshit.WorldDataPacketSender;
+import edu.ucf.epoch.epochpatches.util.scheduler.EpochScheduler;
 import net.minecraft.server.MinecraftServer;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -13,6 +16,7 @@ public class EpochPatchesMod {
 	public static final String MODID = "epochpatches";
 	public static final Logger LOGGER = LogUtils.getLogger();
 	
+	public static EpochScheduler scheduler;
 	
 	public static MinecraftServer server;
 	
@@ -25,5 +29,7 @@ public class EpochPatchesMod {
 	
 	private void onServerStarting(final ServerStartingEvent event) {
 		server = event.getServer();
+		scheduler = new EpochScheduler(server::getTickCount);
+		scheduler.scheduleRepeating(40, WorldDataPacketSender.INSTANCE);
 	}
 }

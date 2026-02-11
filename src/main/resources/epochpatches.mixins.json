@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "edu.ucf.epoch.epochpatches.mixin",
   "compatibilityLevel": "JAVA_21",
+  "plugin": "edu.ucf.epoch.epochpatches.EpochMixinConfigPlugin",
   "mixins": [
   ],
   "client": [
