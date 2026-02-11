@@ -8,6 +8,7 @@ import net.minecraft.server.MinecraftServer;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
@@ -25,11 +26,16 @@ public class EpochPatchesMod {
 	public EpochPatchesMod(IEventBus modEventBus) {
 		// Register the commonSetup method for modloading
 		NeoForge.EVENT_BUS.addListener(this::onServerStarting);
+		NeoForge.EVENT_BUS.addListener(this::registerCommands);
 	}
 	
 	private void onServerStarting(final ServerStartingEvent event) {
 		server = event.getServer();
 		scheduler = new EpochScheduler(server::getTickCount);
 		scheduler.scheduleRepeating(40, WorldDataPacketSender.INSTANCE);
+	}
+	
+	private void registerCommands(final RegisterCommandsEvent evt) {
+		evt.getDispatcher().register(EpochCommands.make());
 	}
 }
