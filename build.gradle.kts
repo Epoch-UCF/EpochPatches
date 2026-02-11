@@ -128,6 +128,13 @@ repositories {
 
 dependencies {
 	implementation("thedarkcolour:kotlinforforge-neoforge:5.11.0")
+	compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.7-beta.1")!!)
+	implementation("com.github.bawnorton.mixinsquared:mixinsquared-neoforge:0.3.7-beta.1")
+	"jarJar"("com.github.bawnorton.mixinsquared:mixinsquared-neoforge:0.3.7-beta.1") {
+		version {
+			strictly("[0.3.7-beta.1,)")
+		}
+	}
 	
 //	implementation("curse.maven:starcatcher-1357603:7553668")
 	
