@@ -12,7 +12,7 @@ public class Constants {
 	
 	public static final Path EPOCH_FOLDER = FMLPaths.GAMEDIR.get().resolve("epochpatches");
 	
-	static {;
+	static {
 		if (Files.notExists(EPOCH_FOLDER)) {
 			try {
 				Files.createDirectory(EPOCH_FOLDER);

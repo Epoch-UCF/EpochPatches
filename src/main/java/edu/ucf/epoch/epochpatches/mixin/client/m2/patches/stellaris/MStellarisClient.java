@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(targets="com.st0x0ef.stellaris.client.StellarisClient") @Pseudo
 public abstract class MStellarisClient {
 	@Redirect(

@@ -10,12 +10,11 @@ import org.spongepowered.asm.mixin.injection.Coerce;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import phanastrae.operation_starcleave.block.StellarFarmlandBlock;
-import phanastrae.operation_starcleave.world.firmament.Firmament;
 
+@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(targets="phanastrae.operation_starcleave.block.StellarFarmlandBlock", remap = false) @Pseudo
 abstract class MStellarFarmlandBlock {
-	/** Just disable spawns entirely cause it's taking too much server time even with the cache */
+	/** Just disable spawns entirely for now cause it's taking too much server time even with the cache */
 	@Inject(
 			method = "isStarlit",
 			at = @At("HEAD"),

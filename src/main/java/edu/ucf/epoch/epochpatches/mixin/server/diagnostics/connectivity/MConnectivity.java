@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  * Make `connectivity packetsSummary` use the *fully-qualified* class name for the packet
  * instead of either just the class name or the "packet name"
  */
+@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(targets="com.connectivity.networkstats.NetworkStatGatherer", remap = false) @Pseudo
 abstract class MConnectivity {
 	/**

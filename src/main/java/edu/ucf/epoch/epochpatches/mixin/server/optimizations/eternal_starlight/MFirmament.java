@@ -4,13 +4,15 @@ import edu.ucf.epoch.epochpatches.mixinsupport.IFirmamentExtensions;
 import it.unimi.dsi.fastutil.longs.Long2IntAVLTreeMap;
 import it.unimi.dsi.fastutil.longs.Long2IntMap;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(targets="phanastrae.operation_starcleave.world.firmament.Firmament", remap = false)
+@SuppressWarnings("UnresolvedMixinReference")
+@Mixin(targets="phanastrae.operation_starcleave.world.firmament.Firmament", remap = false) @Pseudo
 abstract class MFirmament implements IFirmamentExtensions {
     @Unique
     private final Long2IntMap epoch$firmamentDamageTickCache = new Long2IntAVLTreeMap();

@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(targets="net.blay09.mods.hardcorerevival.MixinHooks", remap = false) @Pseudo
 public abstract class MMixinHooks {
 	/**
