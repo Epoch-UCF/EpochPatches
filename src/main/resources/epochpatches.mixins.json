@@ -7,14 +7,15 @@
   "mixins": [
   ],
   "server": [
-    "server.m2.patches.hardcore_revival.MMixinHooks",
     "server.features.neoforge.MAsyncRunCommand",
     "server.features.neoforge.MAsyncRunCommand_CaptureTerminalThread",
     "server.features.neoforge.MAsyncRunCommand_DedicatedServerToo",
     "server.features.neoforge.MAsyncRunCommand_NoEventOnTerminalThread",
+    "server.m2.patches.hardcore_revival.MMixinHooks"
   ],
   "client": [
-    "client.m2.spaceploitation.MBlackHoleShader",
+    "client.m2.patches.stellaris.MStellarisClient",
+    "client.m2.spaceploitation.MBlackHoleShader"
   ],
   "injectors": {
     "defaultRequire": 0
