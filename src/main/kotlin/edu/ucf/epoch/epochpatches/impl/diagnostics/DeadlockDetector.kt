@@ -1,12 +1,10 @@
-package edu.ucf.epoch.epochpatches.diagnostics
+package edu.ucf.epoch.epochpatches.impl.diagnostics
 
 import edu.ucf.epoch.epochpatches.Constants
 import net.neoforged.neoforge.logging.ThreadInfoUtil
 import java.lang.management.ManagementFactory
 import java.nio.file.Files
 import java.nio.file.Path
-import kotlin.io.path.createFile
-import kotlin.io.path.deleteIfExists
 
 object DeadlockDetector {
 	private val outFile: Path

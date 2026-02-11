@@ -3,7 +3,7 @@ package edu.ucf.epoch.epochpatches.commands;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import edu.ucf.epoch.epochpatches.commands.subcommands.RestartCommand;
-import edu.ucf.epoch.epochpatches.diagnostics.DeadlockDetector;
+import edu.ucf.epoch.epochpatches.impl.diagnostics.DeadlockDetector;
 import net.minecraft.commands.CommandSourceStack;
 
 import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
