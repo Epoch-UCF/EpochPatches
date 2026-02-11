@@ -1,3 +1,5 @@
+import java.nio.file.Path
+
 plugins {
 	id("java-library")
 	id("maven-publish")
@@ -139,6 +141,7 @@ dependencies {
 //	implementation("curse.maven:starcatcher-1357603:7553668")
 	val localMods = Path.of(EPOCH_MODS_DIR)
 	compileOnly(files(localMods.resolve("Vanishmod-1.21.1-1.1.20.jar")))
+	compileOnly(files(localMods.resolve("hardcorerevival-neoforge-1.21.1-21.1.11.jar")))
 	
 	// Example mod dependency with JEI
 	// The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
