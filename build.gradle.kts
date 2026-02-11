@@ -138,10 +138,13 @@ dependencies {
 		}
 	}
 	
-//	implementation("curse.maven:starcatcher-1357603:7553668")
 	val localMods = Path.of(EPOCH_MODS_DIR)
 	compileOnly(files(localMods.resolve("Vanishmod-1.21.1-1.1.20.jar")))
 	compileOnly(files(localMods.resolve("hardcorerevival-neoforge-1.21.1-21.1.11.jar")))
+	compileOnly(files(localMods.resolve("stellaris-1.21-neoforge-1.4.20.jar")))
+	
+	
+	compileOnly(files(project.projectDir.resolve("build/libs/epochpatches-4.0-old.jar")))
 	
 	// Example mod dependency with JEI
 	// The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

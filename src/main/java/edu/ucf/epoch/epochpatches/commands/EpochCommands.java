@@ -1,7 +1,6 @@
 package edu.ucf.epoch.epochpatches.commands;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-
 import com.mojang.brigadier.context.CommandContext;
 import edu.ucf.epoch.epochpatches.commands.subcommands.RestartCommand;
 import edu.ucf.epoch.epochpatches.diagnostics.DeadlockDetector;

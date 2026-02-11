@@ -1,0 +1,1 @@
+const val EPOCH_MODS_DIR = "ADD THIS IN buildSrc"
