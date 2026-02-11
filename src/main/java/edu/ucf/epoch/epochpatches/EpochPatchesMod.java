@@ -27,6 +27,8 @@ public class EpochPatchesMod {
 		// Register the commonSetup method for modloading
 		NeoForge.EVENT_BUS.addListener(this::onServerStarting);
 		NeoForge.EVENT_BUS.addListener(this::registerCommands);
+		NeoForge.EVENT_BUS.register(EpochEventListeners.INSTANCE);
+		
 	}
 	
 	private void onServerStarting(final ServerStartingEvent event) {
