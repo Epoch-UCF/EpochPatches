@@ -6,8 +6,10 @@
   "plugin": "edu.ucf.epoch.epochpatches.EpochMixinConfigPlugin",
   "mixins": [
   ],
+  "server": [
+  ],
   "client": [
-    "client.m2.spaceploitation.MBlackHoleShader"
+    "client.m2.spaceploitation.MBlackHoleShader",
   ],
   "injectors": {
     "defaultRequire": 0
