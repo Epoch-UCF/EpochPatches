@@ -14,7 +14,7 @@ import edu.ucf.epoch.epochpatches.asm.util.toInternalName
  * Mixins can't do anything programmatically, so we need to interface with the backend it wraps around.
  */
 object Transformers {
-	@JvmStatic
+	@JvmField
 	val LOGGER = AsmUtils.LOGGER
 	
 	@JvmStatic
