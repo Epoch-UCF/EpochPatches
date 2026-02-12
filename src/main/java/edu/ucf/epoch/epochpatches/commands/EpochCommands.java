@@ -2,6 +2,7 @@ package edu.ucf.epoch.epochpatches.commands;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
+import edu.ucf.epoch.epochpatches.commands.subcommands.DataCommands;
 import edu.ucf.epoch.epochpatches.commands.subcommands.RestartCommand;
 import edu.ucf.epoch.epochpatches.impl.diagnostics.DeadlockDetector;
 import net.minecraft.commands.CommandSourceStack;
@@ -14,7 +15,8 @@ public final class EpochCommands {
 		return literal("epoch")
 				       .requires((stack) -> stack.hasPermission(4))
 				       .then(literal("deadlock").executes(EpochCommands::doDeadlockCommand))
-				       .then(RestartCommand.make());
+				       .then(RestartCommand.make())
+				       .then(DataCommands.make());
 	}
 	
 	private static int doDeadlockCommand(final CommandContext<CommandSourceStack> ctx) {
