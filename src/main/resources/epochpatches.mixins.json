@@ -6,15 +6,14 @@
   "plugin": "edu.ucf.epoch.epochpatches.EpochMixinConfigPlugin",
   "mixins": [
     "server.diagnostics.connectivity.MConnectivity"
+    "server.diagnostics.connectivity.MConnectivity",
   ],
   "server": [
     "server.features.neoforge.MAsyncRunCommand",
     "server.features.neoforge.MAsyncRunCommand_CaptureTerminalThread",
     "server.features.neoforge.MAsyncRunCommand_DedicatedServerToo",
     "server.features.neoforge.MAsyncRunCommand_NoEventOnTerminalThread",
-    "server.m2.patches.hardcore_revival.MMixinHooks",
-    "server.optimizations.eternal_starlight.MFirmament",
-    "server.optimizations.eternal_starlight.MStellarFarmlandBlock"
+    "server.m2.patches.hardcore_revival.MMixinHooks"
   ],
   "client": [
     "client.m2.patches.stellaris.MStellarisClient",

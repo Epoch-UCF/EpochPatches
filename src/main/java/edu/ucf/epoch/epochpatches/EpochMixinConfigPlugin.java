@@ -1,5 +1,6 @@
 package edu.ucf.epoch.epochpatches;
 
+import com.bawnorton.mixinsquared.canceller.MixinCancellerRegistrar;
 import edu.ucf.epoch.epochpatches.asm.Transformers;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 public class EpochMixinConfigPlugin implements IMixinConfigPlugin {
 	public EpochMixinConfigPlugin() {
+		MixinCancellerRegistrar.register(new EpochMixinCanceller());
 		Transformers.executeTransformers();
 	}
 	
