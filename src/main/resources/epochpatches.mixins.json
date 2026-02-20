@@ -5,8 +5,8 @@
   "compatibilityLevel": "JAVA_21",
   "plugin": "edu.ucf.epoch.epochpatches.EpochMixinConfigPlugin",
   "mixins": [
-    "server.diagnostics.connectivity.MConnectivity"
     "server.diagnostics.connectivity.MConnectivity",
+    "server.disabling.shineals_prehistoric.MModBiomes"
   ],
   "server": [
     "server.features.neoforge.MAsyncRunCommand",
