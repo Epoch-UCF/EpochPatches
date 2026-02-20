@@ -16,7 +16,8 @@
     "server.m2.patches.hardcore_revival.MMixinHooks",
     "server.m2.patches.vanishmod.MServerCommonPacketListenerImpl",
     "server.optimizations.eternal_starlight.MFirmament",
-    "server.optimizations.eternal_starlight.MStellarFarmlandBlock"
+    "server.optimizations.eternal_starlight.MStellarFarmlandBlock",
+    "server.patches.clavis.MLockManager"
   ],
   "client": [
     "client.m2.patches.stellaris.MStellarisClient",
