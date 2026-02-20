@@ -3,7 +3,6 @@ package edu.ucf.epoch.epochpatches.commands.subcommands;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
-import edu.ucf.epoch.epochpatches.diagnostics.DeadlockDetector;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
