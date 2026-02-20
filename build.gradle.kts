@@ -77,6 +77,8 @@ neoForge {
 			// "REGISTRIES": For firing of registry events.
 			// "REGISTRYDUMP": For getting the contents of all registries.
 			systemProperty("forge.logging.markers", "REGISTRIES")
+			systemProperty("mixin.debug.export", "true") // -Dmixin.debug.export=true
+//			jvmArgument("-XX:+AllowEnhancedClassRedefinition")
 			
 			// Recommended logging level for the console
 			// You can set various levels here.
@@ -112,6 +114,7 @@ repositories {
 }
 
 dependencies {
+	
 	implementation("thedarkcolour:kotlinforforge-neoforge:5.11.0")
 	compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.7-beta.1")!!)
 	implementation("com.github.bawnorton.mixinsquared:mixinsquared-neoforge:0.3.7-beta.1")
@@ -121,39 +124,17 @@ dependencies {
 		}
 	}
 	
-//	val localMods = Path.of(EPOCH_MODS_DIR)
-//	compileOnly(files(localMods.resolve("Vanishmod-1.21.1-1.1.20.jar")))
-//	compileOnly(files(localMods.resolve("hardcorerevival-neoforge-1.21.1-21.1.11.jar")))
-//	compileOnly(files(localMods.resolve("stellaris-1.21-neoforge-1.4.20.jar")))
-//	compileOnly(files(localMods.resolve("operation_starcleave-neoforge-mc1.21.1-0.2.0.3.jar")))
-//	compileOnly(files(localMods.resolve("connectivity-1.21.1-7.6.jar")))
-//
-	// Example mod dependency with JEI
-	// The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-	// compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-	// compileOnly "mezz.jei:jei-${mc_version}-forge-api:${jei_version}"
-	// runtimeOnly "mezz.jei:jei-${mc_version}-forge:${jei_version}"
-	
-	// Example mod dependency using a mod jar from ./libs with a flat dir repository
-	// This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-	// The group id is ignored when searching -- in this case, it is "blank"
-	// implementation "blank:coolmod-${mc_version}:${coolmod_version}"
-	
-	// Example mod dependency using a file as dependency
-	// implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
-	
-	// Example project dependency using a sister or child project:
-	// implementation project(":myproject")
-	
-	// For more info:
-	// http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-	// http://www.gradle.org/docs/current/userguide/dependency_management.html
+	val localMods = Path.of(EPOCH_MODS_DIR)
+	compileOnly(files(localMods.resolve("TheCatamount-neoforge-1.0.jar")))
+	compileOnly(files(localMods.resolve("shineals_prehistoric_expansion-1.4.3-neoforge-1.21.1.jar")))
+	implementation(files(localMods.resolve("architectury-13.0.8-neoforge.jar"), localMods.resolve("OctoLib-NEOFORGE-0.6.0.4+1.21.jar")))
+	implementation(files(localMods.resolve("Clavis-NEOFORGE-0.2.11+1.21.1.jar")))
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 tasks.register<ProcessResources>("generateModMetadata") {
-	var replaceProperties = mapOf("minecraft_version"      to minecraft_version,
+	val replaceProperties = mapOf("minecraft_version"      to minecraft_version,
 							 "minecraft_version_range" to minecraft_version_range,
 							 "neo_version"            to neo_version,
 							 "neo_version_range"      to neo_version_range,

@@ -1,5 +1,6 @@
 package edu.ucf.epoch.epochpatches.commands.subcommands;
 
+import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -23,21 +24,24 @@ import static net.minecraft.commands.Commands.literal;
 
 public final class DataCommands {
 	public static LiteralArgumentBuilder<CommandSourceStack> make() {
-		var attachment_name_plus = argument("attachment_name", ResourceLocationArgument.id())
-				                                 .suggests((context, builder) -> {
-					                                 var attachments = dataAttachmentsForEntity(EntityArgument.getEntity(context, "target"));
-					                                 for (var type : attachments.keySet()) {
-						                                 builder.suggest(NeoForgeRegistries.ATTACHMENT_TYPES.getKey(type).toString());
-					                                 }
-					                                 return builder.buildFuture();
-				                                 })
-				                                 .executes(DataCommands::getData).build();
+		var anp = attachmentNamePlus().build();
 		return literal("data_attachments")
 				       .then(literal("get").then(
 						       literal("entity")
 								       .then(argument("target", EntityArgument.entity())
-										             .then(attachment_name_plus))
-								       .then(attachment_name_plus)));
+										             .then(anp))
+								       .then(anp)));
+	}
+	private static ArgumentBuilder<CommandSourceStack, ?> attachmentNamePlus() {
+		return argument("attachment_name", ResourceLocationArgument.id())
+				.suggests((context, builder) -> {
+					var attachments = dataAttachmentsForEntity(EntityArgument.getEntity(context, "target"));
+					for (var type : attachments.keySet()) {
+						builder.suggest(NeoForgeRegistries.ATTACHMENT_TYPES.getKey(type).toString());
+					}
+					return builder.buildFuture();
+				})
+				.executes(DataCommands::getData);
 	}
 	
 	private static Map<AttachmentType<?>, Object> dataAttachmentsForEntity(Entity entity) {
