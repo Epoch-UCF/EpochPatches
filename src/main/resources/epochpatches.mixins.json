@@ -14,7 +14,9 @@
     "server.features.neoforge.MAsyncRunCommand_DedicatedServerToo",
     "server.features.neoforge.MAsyncRunCommand_NoEventOnTerminalThread",
     "server.m2.patches.hardcore_revival.MMixinHooks",
-    "server.m2.patches.vanishmod.MServerCommonPacketListenerImpl"
+    "server.m2.patches.vanishmod.MServerCommonPacketListenerImpl",
+    "server.optimizations.eternal_starlight.MFirmament",
+    "server.optimizations.eternal_starlight.MStellarFarmlandBlock"
   ],
   "client": [
     "client.m2.patches.stellaris.MStellarisClient",
