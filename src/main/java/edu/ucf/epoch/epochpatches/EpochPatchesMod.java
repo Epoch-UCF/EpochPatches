@@ -28,7 +28,6 @@ public class EpochPatchesMod {
 		NeoForge.EVENT_BUS.addListener(this::onServerStarting);
 		NeoForge.EVENT_BUS.addListener(this::registerCommands);
 		NeoForge.EVENT_BUS.register(EpochEventListeners.class);
-		
 	}
 	
 	private void onServerStarting(final ServerStartingEvent event) {
