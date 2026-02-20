@@ -1,7 +1,6 @@
 package edu.ucf.epoch.epochpatches.impl.mocked;
 
-import edu.ucf.epoch.epochpatches.util.documentation.UsedViaReflection;
-import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import it.unimi.dsi.fastutil.objects.ObjectSet;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
@@ -14,35 +13,16 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /**
- * Can be stuck into a `HashSet` slot, but uses the MUCH faster FastUtil set.
+ * Can be stuck into a `HashSet` slot, but allows us to use a MUCH faster set.
  *
  * Seriously, why are Java's HashSets so bad???
  */
-@UsedViaReflection
-public final class HashSet_FastUtil<T> extends HashSet<T> {
-	private final ObjectOpenHashSet<T> internal;
+public final class DelegatedHashSet<T> extends HashSet<T> {
+	private final ObjectSet<T> internal;
 	
-	@UsedViaReflection
-	public HashSet_FastUtil() {
-		internal = new ObjectOpenHashSet<>();
+	public DelegatedHashSet(ObjectSet<T> internal) {
+		this.internal = internal;
 	}
-	
-	@UsedViaReflection
-	public HashSet_FastUtil(@NotNull Collection<? extends T> c) {
-		internal = new ObjectOpenHashSet<>(c);
-	}
-	
-	@UsedViaReflection
-	public HashSet_FastUtil(int initialCapacity) {
-		internal = new ObjectOpenHashSet<>(initialCapacity);
-	}
-	
-	@UsedViaReflection
-	public HashSet_FastUtil(int initialCapacity, float loadFactor) {
-		internal = new ObjectOpenHashSet<>(initialCapacity, loadFactor);
-	}
-	
-	
 	
 	@Override
 	public boolean add(T t) {
@@ -52,12 +32,6 @@ public final class HashSet_FastUtil<T> extends HashSet<T> {
 	@Override
 	public void clear() {
 		internal.clear();
-	}
-	
-	@SuppressWarnings("MethodDoesntCallSuperMethod")
-	@Override
-	public Object clone() {
-		return internal.clone();
 	}
 	
 	@Override

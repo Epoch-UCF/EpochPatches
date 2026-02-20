@@ -3,7 +3,6 @@ package edu.ucf.epoch.epochpatches.asm
 import edu.ucf.epoch.epochpatches.asm.transformers.MCreatorPaths
 import edu.ucf.epoch.epochpatches.asm.transformers.TDisableProcedureEntirely
 import edu.ucf.epoch.epochpatches.asm.transformers.TMCreatorPacketSender
-import edu.ucf.epoch.epochpatches.asm.transformers.TVanishUtilSet
 import edu.ucf.epoch.epochpatches.asm.util.AsmFileWriter
 import edu.ucf.epoch.epochpatches.asm.util.AsmUtils
 import edu.ucf.epoch.epochpatches.asm.util.toInternalName
@@ -30,7 +29,6 @@ object Transformers {
 	private var transformers: Array<IClassTransformer>? = listOf(
 			listOf(
 					TDisableProcedureEntirely(),
-					TVanishUtilSet(),
 			),
 			arrayOf(
 					MCreatorPaths("net.mcreator.callofyucutan.network.CallOfYucutanModVariables".toInternalName()),

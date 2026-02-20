@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Coerce;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(ServerCommonPacketListenerImpl.class)
+@Mixin(value = ServerCommonPacketListenerImpl.class, priority=1500)
 public abstract class MServerCommonPacketListenerImpl {
 	@TargetHandler(
 			mixin = "redstonedubstep.mods.vanishmod.mixin.ServerCommonPacketListenerImplMixin",
@@ -22,7 +22,8 @@ public abstract class MServerCommonPacketListenerImpl {
 			at = @At(
 					target = "Lnet/neoforged/neoforge/common/ModConfigSpec$ConfigValue;get()Ljava/lang/Object;",
 					value = "INVOKE"
-			)
+			),
+			remap=false
 	)
 	private Object wrapWithTryCatch(ModConfigSpec.ConfigValue<?> inst) {
 		if (!(inst instanceof BooleanValue bv)) {

@@ -127,8 +127,9 @@ dependencies {
 	val localMods = Path.of(EPOCH_MODS_DIR)
 	compileOnly(files(localMods.resolve("TheCatamount-neoforge-1.0.jar")))
 	compileOnly(files(localMods.resolve("shineals_prehistoric_expansion-1.4.3-neoforge-1.21.1.jar")))
-	implementation(files(localMods.resolve("architectury-13.0.8-neoforge.jar"), localMods.resolve("OctoLib-NEOFORGE-0.6.0.4+1.21.jar")))
-	implementation(files(localMods.resolve("Clavis-NEOFORGE-0.2.11+1.21.1.jar")))
+	compileOnly(files(localMods.resolve("Clavis-NEOFORGE-0.2.11+1.21.1.jar")))
+	compileOnly(files(localMods.resolve("Vanishmod-1.21.1-1.1.20.jar")))
+	
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

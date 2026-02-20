@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @SuppressWarnings("UnresolvedMixinReference")
-@Mixin(targets="net.blay09.mods.hardcorerevival.MixinHooks", remap = false) @Pseudo
+@Mixin(targets="net.blay09.mods.hardcorerevival.MixinHooks", remap = false, priority=1500) @Pseudo
 public abstract class MMixinHooks {
 	/**
 	 * Schedule the "move player" task on the main thread instead of doing it on the netty thread,
