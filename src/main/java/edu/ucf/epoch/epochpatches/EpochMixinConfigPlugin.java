@@ -11,7 +11,6 @@ import java.util.Set;
 
 public class EpochMixinConfigPlugin implements IMixinConfigPlugin {
 	public EpochMixinConfigPlugin() {
-		MixinCancellerRegistrar.register(new EpochMixinCanceller());
 		Transformers.executeTransformers();
 	}
 	
