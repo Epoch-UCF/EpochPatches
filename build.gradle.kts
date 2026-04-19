@@ -1,5 +1,6 @@
 import java.nio.file.Path
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.net.URI
 
 plugins {
 	id("java-library")
@@ -124,12 +125,15 @@ dependencies {
 		}
 	}
 	
-	val localMods = Path.of(EPOCH_MODS_DIR)
-	compileOnly(files(localMods.resolve("TheCatamount-neoforge-1.0.jar")))
+	val localMods = project.file("mods")
 	compileOnly(files(localMods.resolve("shineals_prehistoric_expansion-1.4.3-neoforge-1.21.1.jar")))
 	compileOnly(files(localMods.resolve("Clavis-NEOFORGE-0.2.11+1.21.1.jar")))
 	compileOnly(files(localMods.resolve("Vanishmod-1.21.1-1.1.20.jar")))
-	
+	compileOnly(files(localMods.resolve("MoreSnifferFlowers-1.21.1-neo-6.6.1.jar")))
+	compileOnly(files(localMods.resolve("bygone-neoforge-1.21.1-2.0.jar")))
+	compileOnly(files(localMods.resolve("hiddennames-1.21.0-1.0.6.jar")))
+	compileOnly(files(localMods.resolve("LocalizedChat-neoforge-1.21.1-5.2.1.jar")))
+	compileOnly(files(localMods.resolve("soundsbegone-1.3.5.jar")))
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

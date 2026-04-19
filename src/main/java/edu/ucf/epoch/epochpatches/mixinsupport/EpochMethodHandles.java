@@ -16,7 +16,8 @@ import java.util.Map;
  * MethodHandles are a way to get unchanging, zero-overhead access to some method somewhere.
  * It's cheaper than reflection, but requires a little more legwork to set up.
  */
-@SuppressWarnings("unchecked") public final class EpochMethodHandles {
+@SuppressWarnings("unchecked")
+public final class EpochMethodHandles {
 	private static final MethodHandles.Lookup lookup = MethodHandles.lookup();
 	
 	private static final MethodHandle AttachmentHolder$getAttachmentMap;

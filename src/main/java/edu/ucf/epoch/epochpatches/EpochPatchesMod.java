@@ -3,6 +3,7 @@ package edu.ucf.epoch.epochpatches;
 import com.mojang.logging.LogUtils;
 import edu.ucf.epoch.epochpatches.commands.EpochCommands;
 import edu.ucf.epoch.epochpatches.impl.mcreatorshit.WorldDataPacketSender;
+import edu.ucf.epoch.epochpatches.registry.EpochPoiTypes;
 import edu.ucf.epoch.epochpatches.util.scheduler.EpochScheduler;
 import net.minecraft.server.MinecraftServer;
 import net.neoforged.bus.api.IEventBus;
@@ -23,12 +24,14 @@ public class EpochPatchesMod {
 	
 	// The constructor for the mod class is the first code that is run when your mod is loaded.
 	// FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-	public EpochPatchesMod() {
-		// Register the commonSetup method for modloading
+	public EpochPatchesMod(IEventBus modBus) {
 		NeoForge.EVENT_BUS.addListener(this::onServerStarting);
 		NeoForge.EVENT_BUS.addListener(this::registerCommands);
 		NeoForge.EVENT_BUS.register(EpochEventListeners.class);
+		
+		EpochPoiTypes.register(modBus);
 	}
+	
 	
 	private void onServerStarting(final ServerStartingEvent event) {
 		server = event.getServer();

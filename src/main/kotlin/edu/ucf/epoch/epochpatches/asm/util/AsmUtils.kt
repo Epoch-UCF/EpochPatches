@@ -1,26 +1,16 @@
 package edu.ucf.epoch.epochpatches.asm.util
 
-import org.apache.logging.log4j.LogManager
-import org.apache.logging.log4j.Logger
+import org.apache.commons.logging.LogFactory
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.Type
 import org.objectweb.asm.Type.*
 import org.objectweb.asm.tree.ClassNode
+import org.slf4j.LoggerFactory
 import org.spongepowered.asm.service.MixinService
 
 object AsmUtils {
 	@JvmField
-	val LOGGER: Logger = LogManager.getLogger("Epoch Class Transformers")
-	
-	@JvmStatic
-	fun getClassNode(name: String): ClassNode? = try {
-		MixinService.getService().bytecodeProvider.getClassNode(name)
-	} catch (_: ClassNotFoundException) {
-		null
-	}
-	
-	@JvmStatic
-	fun descriptorForName(name: String): String = getObjectType(name.toInternalName()).descriptor
+	val LOGGER = LoggerFactory.getLogger("Epoch Class Transformers")
 	
 //	private val nameMapper = Launcher.INSTANCE?.environment()?.findNameMapping("srg")?.getOrNull()
 //

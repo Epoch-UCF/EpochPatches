@@ -21,8 +21,8 @@ abstract class MVanishUtil {
 					value = "NEW"
 			)
 	)
-	private static HashSet<?> foo() {
-		return new DelegatedHashSet<>(new ObjectOpenHashSet<>(2, ObjectOpenHashSet.VERY_FAST_LOAD_FACTOR));
+	private static HashSet<?> useFastSet() {
+		return new DelegatedHashSet<>(new ObjectOpenHashSet<>(5, ObjectOpenHashSet.VERY_FAST_LOAD_FACTOR));
 	}
 }
 

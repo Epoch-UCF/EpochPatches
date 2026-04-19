@@ -12,7 +12,9 @@ object DeadlockDetector {
 	
 	fun findDeadlock() {
 		Files.newOutputStream(outFile).use { writer ->
-			ManagementFactory.getThreadMXBean().dumpAllThreads(true, true).forEach { info ->
+			val threadMXBean = ManagementFactory.getThreadMXBean()
+			writer.write("Deadlocked threads: ${threadMXBean.findDeadlockedThreads().contentToString()}\n".toByteArray())
+			threadMXBean.dumpAllThreads(true, true).forEach { info ->
 				writer.write((ThreadInfoUtil.getEntireStacktrace(info) + "\n").toByteArray())
 			}
 		}

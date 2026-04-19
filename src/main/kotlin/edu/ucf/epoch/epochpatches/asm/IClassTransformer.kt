@@ -1,8 +1,14 @@
 package edu.ucf.epoch.epochpatches.asm
 
+import edu.ucf.epoch.epochpatches.asm.util.toInternalName
+import org.objectweb.asm.AnnotationVisitor
+import org.objectweb.asm.ClassWriter
+import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.tree.ClassNode
 import org.objectweb.asm.tree.InsnList
+import org.spongepowered.asm.mixin.Mixin
+import java.lang.invoke.MethodHandles
 
 interface IClassTransformer {
 	/**

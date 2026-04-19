@@ -1,12 +1,15 @@
 package edu.ucf.epoch.epochpatches.mixin.server.patches.the_catamount;
 
-import dev.sterner.the_catamount.neoforge.TheCatamountNeoForge;
+import edu.ucf.epoch.epochpatches.util.documentation.DisabledMixin;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Pre;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(value = TheCatamountNeoForge.GameEvents.class, remap = false)
+@SuppressWarnings({"UnresolvedMixinReference", "UnusedMixin"})
+@Mixin(targets = "dev.sterner.the_catamount.neoforge.TheCatamountNeoForge$GameEvents", remap = false) @Pseudo
+@DisabledMixin(reason="No longer included in the modpack.")
 abstract class MTheCatamountNeoForge {
 	@Redirect(
 			method="onLivingHurt",

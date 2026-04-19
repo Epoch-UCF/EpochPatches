@@ -1,0 +1,3 @@
+- cropressor: able to insert too many items
+  - there's a bandaid fix on it currently that voids items
+- cropressor recipe serializing packet with empty result value
